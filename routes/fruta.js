@@ -9,5 +9,6 @@ api.get('/pruebas', frutaController.pruebas);
 api.post('/fruta', frutaController, saveFruta);
 api.get('/frutas', frutaController, getFrutas);
 api.get('/fruta/:id', frutaController, getFruta);
+api.put('/fruta/:id', frutaController, updateFruta);
 
 module.exports = api; 

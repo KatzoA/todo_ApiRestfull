@@ -68,9 +68,28 @@ function getFruta(req, res) {
     })
 }
 
+// update fruta por ID
+function updateFruta(req, res) {
+    var frutaId = req.params.id;
+    var update = req.body;
+
+    Fruta.findByIdAndUpdate(frutaId, update, { new: true }, (err, frutaUpdated) => {
+        if (err) {
+            res.status(500).send({ message: 'error en el servidor' })
+        } else {
+            if (frutaUpdated) {
+                res.status(200).send({ fruta: frutaUpdated });
+            } else {
+                res.status(404).send({ message: 'No existe fruta' });
+            }
+        }
+    })
+}
+
 module.exports = {
     pruebas,
     saveFruta,
     getFrutas,
-    getFruta
+    getFruta,
+    updateFruta
 };
