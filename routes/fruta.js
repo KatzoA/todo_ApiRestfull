@@ -6,6 +6,7 @@ var frutaController = require('../controllers/fruta');
 var api = express.Router();
 
 api.get('/pruebas', frutaController.pruebas);
-api.post('/fruta', frutaController, saveFruta)
+api.post('/fruta', frutaController, saveFruta);
+api.get('/frutas', frutaController, getFrutas)
 
 module.exports = api; 
